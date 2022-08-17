@@ -3,26 +3,23 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 	<head>
 		<title>Log in</title>
-		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<link rel="stylesheet" 
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-		<link rel="stylesheet" 
-		    href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"/>
-		<link rel="stylesheet" th:href="@{/custom.css}"/>		    		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>		
+		<th:block th:replace="/fragments/head">
+		</th:block>				
 	</head>      
     <body>
     	<div class="container">
+    		<div th:replace="/fragments/navbar"></div>
     		<h2>Welcome!</h2>
-    		<form>
+    		<form th:action="@{/login}" method="post" >
     			<input type="text" id="username" name="username" placeholder="Username" 
     			       class="form-control"/>
     			<br/>
     			<input type="password" id="password" name="password" placeholder="Password" 
     			       class="form-control"/>
     			<br/>
+    			<div align="center" th:if="${param.error}">
+    				<h4 style="color: red">Login unsuccessful.</h4>
+    			</div>
     			<button class="btn btn-md btn-success btn-block" name="Submit" value="Login" 
     			        type="submit">
     			        Log In

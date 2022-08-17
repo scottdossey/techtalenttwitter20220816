@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+	<head>
+		<title>Tweets</title>
+		<th:block th:replace="/fragments/head">
+		</th:block>				
+	</head>      
+    <body>
+    	<div class="container">
+    		<div th:replace="/fragments/navbar"></div>
+    		<h2>Tweets</h2>
+    		<div th:each="tweet:${tweetList}">
+    			<h5>@<span th:text="${tweet.user.username}"></span></h5>
+    			<small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small>
+    			<p th:utext="${tweet.message}"></p>
+    		</div>    	    
+    	</div>
+    </body>       
+</html>   

@@ -52,7 +52,8 @@ public class Tweet {
 	           inverseJoinColumns = @JoinColumn(name="tag_id"))			
 	private List<Tag> tags;
 	
-	
+		
 	@CreationTimestamp
 	private Date createdAt;
+	
 }

@@ -9,7 +9,7 @@ function unhoverFunction(event) {
 	let element = event.currentTarget;
 	element.innerText="Following";
 	element.classList.remove("btn-danger");
-	element.classList.add("btn-primary")	
+	element.classList.add("btn-primary");	
 }
 
 let element = document.querySelector(".unfollow_btn");

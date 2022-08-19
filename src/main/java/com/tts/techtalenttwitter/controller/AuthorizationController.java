@@ -28,9 +28,7 @@ public class AuthorizationController {
 	}
 	
 	@GetMapping(path="/signup")
-	public String registration(Model model) {
-		User user = new User();
-		model.addAttribute("user", user);
+	public String registration(User user) {		
 		return "registration";
 	}
 	
